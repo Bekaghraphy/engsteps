@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEPS | Engineering Excellence</title>
+<title>STEPS | Home</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -31,6 +31,13 @@ html,body{
 
 /* ================= LANGUAGE TOGGLE ================= */
 #langToggle{display:none;}
+
+.en{display:block;}
+.ar{display:none;}
+
+#langToggle:checked ~ .hero .en{display:none;}
+#langToggle:checked ~ .hero .ar{display:block;}
+#langToggle:checked ~ .hero{direction:rtl;}
 
 .lang-toggle{
   position:absolute;
@@ -139,47 +146,41 @@ nav ul li a:hover{
   position:relative;
   z-index:3;
   max-width:1200px;
-  padding:80px 90px 80px;
+  padding:90px 90px 80px;
 }
 
 /* ================= ABOUT ================= */
-.about-header{
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
 .about-title{
-  font-size:28px;
+  font-size:32px;
   font-weight:800;
   letter-spacing:4px;
   color:var(--orange);
 }
 
 .about-glow-line{
-  width:140px;
+  width:160px;
   height:2px;
   background:var(--orange);
-  margin:16px 0 32px;
-  box-shadow:0 0 30px rgba(255,122,24,1);
-  animation: linePulse 2.5s ease-in-out infinite;
+  margin:18px 0 34px;
+  box-shadow:0 0 35px rgba(255,122,24,1);
+  animation:lineGlow 2.8s ease-in-out infinite;
 }
 
-@keyframes linePulse{
+@keyframes lineGlow{
   0%,100%{opacity:.4;}
   50%{opacity:1;}
 }
 
 .about-text{
-  max-width:900px;
-  font-size:17px;
-  line-height:2.1;
+  max-width:920px;
+  font-size:18px;
+  line-height:2.2;
   opacity:.95;
 }
 
 /* ================= VALUES ================= */
 .values{
-  margin-top:85px;
+  margin-top:90px;
   display:flex;
   justify-content:center;
   gap:90px;
@@ -187,26 +188,17 @@ nav ul li a:hover{
 }
 
 .value-item{
-  max-width:270px;
-  cursor:pointer;
-  transition:.35s;
+  max-width:260px;
 }
 
 .value-icon{
-  font-size:30px;
+  font-size:28px;
   margin-bottom:14px;
-  animation: iconFloat 3s ease-in-out infinite;
-}
-
-@keyframes iconFloat{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-6px);}
 }
 
 .value-title{
   font-size:18px;
   font-weight:800;
-  letter-spacing:1.5px;
   margin-bottom:10px;
 }
 
@@ -216,75 +208,12 @@ nav ul li a:hover{
   opacity:.85;
 }
 
-/* Glow */
-.value-item:hover,
-.value-item:active{
-  text-shadow:0 0 24px rgba(255,122,24,.75);
-}
-
-.value-item:hover .value-icon{
-  text-shadow:0 0 20px rgba(255,122,24,1);
-}
-
-/* ================= SOCIAL ================= */
-.social{
-  position:absolute;
-  bottom:55px;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  gap:24px;
-  z-index:4;
-}
-
-.social a{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,.35);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:.35s;
-}
-
-.social a:hover{
-  box-shadow:0 0 28px rgba(255,122,24,1);
-  transform:scale(1.15);
-}
-
-.social svg{
-  width:18px;
-  fill:var(--white);
-}
-
-/* ================= FOOTER ================= */
-footer{
-  position:absolute;
-  bottom:18px;
-  width:100%;
-  text-align:center;
-  font-size:13px;
-  color:rgba(255,255,255,.9);
-  text-shadow:0 0 14px rgba(0,0,0,.9);
-  z-index:4;
-}
-
-/* ================= LANGUAGE VISIBILITY ================= */
-.en{display:block;}
-.ar{display:none;}
-
-#langToggle:checked ~ .hero .en{display:none;}
-#langToggle:checked ~ .hero .ar{display:block;}
-#langToggle:checked ~ .hero{direction:rtl;}
-
 /* ================= MOBILE ================= */
 @media(max-width:900px){
-  nav ul{display:none;}
-  .page{padding:90px 25px;}
+  .page{padding:100px 25px;}
   .values{
     flex-direction:column;
-    gap:45px;
+    gap:40px;
   }
 }
 </style>
@@ -309,10 +238,8 @@ footer{
   <div class="page">
 
     <!-- ABOUT -->
-    <div class="about-header">
-      <div class="about-title en">ABOUT</div>
-      <div class="about-title ar">من نحن</div>
-    </div>
+    <div class="about-title en">ABOUT</div>
+    <div class="about-title ar">من نحن</div>
 
     <div class="about-glow-line"></div>
 
@@ -374,19 +301,6 @@ footer{
   <label for="langToggle" class="en">EN</label>
   <label for="langToggle" class="ar">AR</label>
 </div>
-
-<div class="social">
-  <a href="https://www.facebook.com/profile.php?id=100089016788354#" target="_blank">
-    <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-3h2.4V9.4c0-2.4 1.4-3.7 3.6-3.7 1 0 2 .2 2 .2v2.2h-1.1c-1.1 0-1.5.7-1.5 1.4V12H16l-.4 3h-2.5v7A10 10 0 0 0 22 12z"/></svg>
-  </a>
-  <a href="https://www.linkedin.com/company/steps-engineering-contracting/" target="_blank">
-    <svg viewBox="0 0 24 24"><path d="M2.4 21h5.2V9H2.4zm2.6-14A2.6 2.6 0 1 1 5 2.4 2.6 2.6 0 0 1 5 7zm4.3 14h5.2v-6.2c0-1.5-.03-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3V21z"/></svg>
-  </a>
-</div>
-
-<footer>
-  Copyright © 2024 STEPS - All Rights Reserved.
-</footer>
 
 </body>
 </html>
