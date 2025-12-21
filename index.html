@@ -149,62 +149,63 @@ nav ul li a:hover{
   padding:90px 90px 80px;
 }
 
-/* ================= ABOUT ================= */
+/* ================= ABOUT (BIGGER) ================= */
 .about-title{
-  font-size:32px;
+  font-size:36px; /* كبرناها سنة كمان */
   font-weight:800;
   letter-spacing:4px;
   color:var(--orange);
 }
 
 .about-glow-line{
-  width:160px;
+  width:180px; /* أوضح */
   height:2px;
   background:var(--orange);
-  margin:18px 0 34px;
-  box-shadow:0 0 35px rgba(255,122,24,1);
+  margin:20px 0 36px;
+  box-shadow:0 0 40px rgba(255,122,24,1);
   animation:lineGlow 2.8s ease-in-out infinite;
 }
 
 @keyframes lineGlow{
-  0%,100%{opacity:.4;}
+  0%,100%{opacity:.45;}
   50%{opacity:1;}
 }
 
 .about-text{
-  max-width:920px;
-  font-size:18px;
-  line-height:2.2;
+  max-width:940px;
+  font-size:19px; /* كبرنا النص */
+  line-height:2.25;
   opacity:.95;
 }
 
-/* ================= VALUES ================= */
+/* ================= VALUES (CENTER + BIGGER) ================= */
 .values{
-  margin-top:90px;
+  margin-top:95px;
   display:flex;
-  justify-content:center;
-  gap:90px;
+  justify-content:center; /* في النص */
+  align-items:flex-start;
+  gap:110px; /* مسافة أوسع */
   text-align:center;
 }
 
 .value-item{
-  max-width:260px;
+  max-width:300px;
 }
 
 .value-icon{
-  font-size:28px;
-  margin-bottom:14px;
+  font-size:34px; /* أكبر */
+  margin-bottom:16px;
 }
 
 .value-title{
-  font-size:18px;
+  font-size:20px; /* أكبر */
   font-weight:800;
-  margin-bottom:10px;
+  margin-bottom:12px;
 }
 
 .value-text{
-  font-size:14px;
-  line-height:1.8;
+  font-size:15px; /* أكبر */
+  line-height:1.9;
   opacity:.85;
 }
 
@@ -213,7 +214,7 @@ nav ul li a:hover{
   .page{padding:100px 25px;}
   .values{
     flex-direction:column;
-    gap:40px;
+    gap:45px;
   }
 }
 </style>
