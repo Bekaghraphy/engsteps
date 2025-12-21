@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEPS | Home</title>
+<title>STEPS</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
@@ -29,7 +29,7 @@ html,body{
   background:var(--black);
 }
 
-/* ================= TOGGLE (UNCHANGED) ================= */
+/* ================= LANGUAGE TOGGLE ================= */
 #langToggle{display:none;}
 .en{display:block;}
 .ar{display:none;}
@@ -40,72 +40,68 @@ html,body{
 
 .lang-toggle{
   position:absolute;
-  bottom:120px;
+  bottom:115px;
   width:100%;
   display:flex;
   justify-content:center;
-  gap:14px;
   z-index:6;
 }
 
 .lang-toggle label{
-  padding:7px 18px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,.45);
-  font-size:12px;
+  padding:6px 16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.4);
+  font-size:11px;
+  color:#fff;
   cursor:pointer;
-  color:var(--white);
 }
 
-#langToggle:not(:checked) ~ .lang-toggle .en{
-  border-color:var(--orange);
-  box-shadow:0 0 18px rgba(255,122,24,.9);
-}
-
+#langToggle:not(:checked) ~ .lang-toggle .en,
 #langToggle:checked ~ .lang-toggle .ar{
   border-color:var(--orange);
-  box-shadow:0 0 18px rgba(255,122,24,.9);
+  box-shadow:0 0 16px rgba(255,122,24,.9);
 }
 
-/* ================= NAV (UNCHANGED) ================= */
-nav{
+/* ================= NAV ================= */
+.main-nav{
   position:absolute;
   top:0;
   width:100%;
   padding:25px 70px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
   z-index:5;
 }
 
-.logo{
-  font-size:20px;
+.main-nav .logo{
   font-weight:800;
-  color:var(--white);
+  color:#fff;
 }
 
-nav ul{
+/* centered nav */
+.nav-links{
   list-style:none;
   display:flex;
-  gap:35px;
+  gap:45px;
+  position:absolute;
+  inset-inline:50%;
+  transform:translateX(-50%);
 }
 
-nav ul li a{
-  color:var(--white);
+.nav-links li a{
+  color:#fff;
+  font-size:15px;
   text-decoration:none;
-  font-size:13px;
+  font-weight:500;
 }
 
 /* ================= HERO ================= */
 .hero{
   position:relative;
-  width:100%;
   height:100vh;
   display:flex;
   align-items:center;
-  overflow:hidden;
-  color:var(--white);
+  color:#fff;
 }
 
 .hero::before{
@@ -133,83 +129,91 @@ nav ul li a{
 .page{
   position:relative;
   z-index:3;
-  max-width:1200px;
+  width:100%;
   padding:95px 90px 80px;
 }
 
-/* ================= ABOUT (ONLY SIZE + LINE) ================= */
+/* ================= ABOUT ================= */
 .about-title{
-  font-size:38px; /* أكبر */
+  color:var(--orange);
+  font-size:30px;
   font-weight:800;
   letter-spacing:4px;
-  color:var(--orange);
 }
 
-.about-glow-line{
-  width:420px;
+.about-underline{
+  width:120px;
   height:2px;
   background:var(--orange);
-  margin:18px 0 32px;
-  box-shadow:0 0 26px rgba(255,122,24,.9);
+  margin:10px 0 28px;
 }
 
 .about-text{
-  max-width:720px;
-  font-size:18px; /* أكبر */
-  line-height:2.2;
+  max-width:700px;
+  font-size:15px;
+  line-height:2.1;
   opacity:.95;
 }
 
-/* ================= VALUES (CENTERED + BIGGER) ================= */
+/* ================= CENTER LINE ================= */
+.center-divider{
+  width:520px;
+  height:1px;
+  margin:50px auto 60px;
+  background:rgba(255,122,24,.85);
+  box-shadow:0 0 18px rgba(255,122,24,.6);
+}
+
+/* ================= VALUES ================= */
 .values{
-  margin-top:85px;
   display:flex;
-  justify-content:center; /* في المنتصف */
-  gap:110px;
+  justify-content:center;
+  gap:120px;
   text-align:center;
 }
 
 .value-item{
-  max-width:260px;
+  max-width:240px;
 }
 
 .value-icon{
-  font-size:30px;
+  font-size:26px;
   margin-bottom:14px;
 }
 
 .value-title{
-  font-size:19px;
+  font-size:17px;
   font-weight:800;
   margin-bottom:10px;
 }
 
 .value-text{
-  font-size:14.5px;
-  line-height:1.9;
+  font-size:13.5px;
+  line-height:1.85;
   opacity:.85;
 }
 
-/* ================= MOBILE ================= */
-@media(max-width:900px){
-  .page{padding:100px 25px;}
-  .about-glow-line{width:260px;}
-  .values{
-    flex-direction:column;
-    gap:45px;
-  }
-}
-  .footer{
+/* ================= FOOTER ================= */
+.footer{
   position:absolute;
   bottom:25px;
   width:100%;
   text-align:center;
-  font-size:12px;
-  letter-spacing:1px;
-  color:rgba(255,255,255,.65);
+  font-size:11px;
+  opacity:.65;
   z-index:6;
 }
 
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  .values{
+    flex-direction:column;
+    gap:45px;
+  }
+  .center-divider{
+    width:260px;
+  }
+}
 </style>
 </head>
 
@@ -217,9 +221,9 @@ nav ul li a{
 
 <input type="checkbox" id="langToggle">
 
-<nav>
+<nav class="main-nav">
   <div class="logo">STEPS</div>
-  <ul>
+  <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="#">Services</a></li>
     <li><a href="#">Projects</a></li>
@@ -231,11 +235,10 @@ nav ul li a{
 <section class="hero">
   <div class="page">
 
-    <!-- ABOUT -->
     <div class="about-title en">ABOUT</div>
     <div class="about-title ar">من نحن</div>
 
-    <div class="about-glow-line"></div>
+    <div class="about-underline"></div>
 
     <p class="about-text en">
       With over 20 years of engineering expertise, STEPS delivers integrated construction
@@ -247,7 +250,8 @@ nav ul li a{
       بأعلى معايير الجودة والسلامة والكفاءة.
     </p>
 
-    <!-- VALUES -->
+    <div class="center-divider"></div>
+
     <div class="values">
 
       <div class="value-item">
@@ -258,7 +262,7 @@ nav ul li a{
           To shape a strong presence in the electromechanical contracting field locally and regionally.
         </div>
         <div class="value-text ar">
-          بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا.
+          بناء حضور قوي في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا.
         </div>
       </div>
 
@@ -270,7 +274,7 @@ nav ul li a{
           Deliver smart and reliable engineering solutions powered by skilled teams.
         </div>
         <div class="value-text ar">
-          تقديم حلول هندسية ذكية وموثوقة مدفوعة بفرق عمل محترفة.
+          تقديم حلول هندسية ذكية وموثوقة بفرق عمل محترفة.
         </div>
       </div>
 
@@ -282,7 +286,7 @@ nav ul li a{
           Precision, innovation, and client satisfaction in every project we deliver.
         </div>
         <div class="value-text ar">
-          الالتزام بالدقة والابتكار ورضا العملاء في كل مشروع نقوم بتنفيذه.
+          الالتزام بالدقة والابتكار ورضا العملاء في كل مشروع.
         </div>
       </div>
 
@@ -295,8 +299,10 @@ nav ul li a{
   <label for="langToggle" class="en">EN</label>
   <label for="langToggle" class="ar">AR</label>
 </div>
-<footer class="footer">
-  COPYRIGHT © 2025 STEPS - ALL RIGHTS RESERVED.
-</footer>
+
+<div class="footer">
+  COPYRIGHT © 2024 STEPS - ALL RIGHTS RESERVED.
+</div>
+
 </body>
 </html>
