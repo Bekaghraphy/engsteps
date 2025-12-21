@@ -10,7 +10,7 @@
 <style>
 :root{
   --black:#050505;
-  --overlay:rgba(0,0,0,0.72); /* ⬅ خفّفنا القتامة فقط */
+  --overlay:rgba(0,0,0,0.65); /* أخف */
   --orange:#ff7a18;
   --white:#ffffff;
 }
@@ -84,46 +84,23 @@ html,body{
   color:#fff;
 }
 
-/* BACKGROUND SLIDESHOW WITH DISSOLVE */
+/* BACKGROUND SLIDESHOW — LOOP SMOOTH */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
   background-size:cover;
   background-position:center;
-  animation:bgSlide 28s ease-in-out infinite;
+  animation:bgSlide 32s linear infinite;
   z-index:1;
 }
 
 @keyframes bgSlide{
-  0%{
-    background-image:url("BG.png");
-    opacity:1;
-  }
-  22%{
-    opacity:1;
-  }
-  25%{
-    background-image:url("pic2.jpg");
-    opacity:1;
-  }
-  47%{
-    opacity:1;
-  }
-  50%{
-    background-image:url("pic3.jpg");
-    opacity:1;
-  }
-  72%{
-    opacity:1;
-  }
-  75%{
-    background-image:url("pic4.jpg");
-    opacity:1;
-  }
-  100%{
-    opacity:1;
-  }
+  0%   {background-image:url("BG.png")}
+  25%  {background-image:url("pic2.jpg")}
+  50%  {background-image:url("pic3.jpg")}
+  75%  {background-image:url("pic4.jpg")}
+  100% {background-image:url("BG.png")} /* رجوع ناعم */
 }
 
 /* OVERLAY */
@@ -135,11 +112,22 @@ html,body{
   z-index:2;
 }
 
+/* ================= CONTENT ================= */
 .page{
   position:relative;
   z-index:3;
   width:100%;
   padding:95px 90px 80px;
+}
+
+/* GLASS PANEL FOR TEXT */
+.content-wrap{
+  display:inline-block;
+  padding:35px 45px;
+  border-radius:18px;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
 }
 
 /* ================= ABOUT ================= */
@@ -253,6 +241,9 @@ html,body{
   .center-divider{
     width:260px;
   }
+  .content-wrap{
+    padding:25px;
+  }
 }
 </style>
 </head>
@@ -276,23 +267,26 @@ html,body{
 <section class="hero">
   <div class="page">
 
-    <div class="about-title en">ABOUT</div>
-    <div class="about-title ar">من نحن</div>
+    <!-- WRAP CONTENT FOR CLARITY -->
+    <div class="content-wrap">
 
-    <div class="about-underline"></div>
+      <div class="about-title en">ABOUT</div>
+      <div class="about-title ar">من نحن</div>
 
-    <p class="about-text en">
-      With over 20 years of engineering excellence, STEPS delivers fully integrated
-      electromechanical construction solutions. Our approach combines precision,
-      innovation, and uncompromising quality to ensure safety, efficiency, and long-term
-      value across every project we deliver.
-    </p>
+      <div class="about-underline"></div>
 
-    <p class="about-text ar">
-      بخبرة تمتد لأكثر من 20 عامًا، تقدم STEPS حلولًا متكاملة في المقاولات
-      الكهروميكانيكية، تجمع بين الدقة الهندسية والابتكار والجودة العالية،
-      لضمان السلامة والكفاءة وتحقيق قيمة مستدامة في كل مشروع.
-    </p>
+      <p class="about-text en">
+        With over 20 years of engineering excellence, STEPS delivers fully integrated
+        electromechanical construction solutions driven by precision, innovation,
+        and uncompromising quality.
+      </p>
+
+      <p class="about-text ar">
+        بخبرة تمتد لأكثر من 20 عامًا، تقدم STEPS حلولًا متكاملة في المقاولات
+        الكهروميكانيكية، تجمع بين الدقة الهندسية والابتكار والجودة العالية.
+      </p>
+
+    </div>
 
     <div class="center-divider"></div>
 
@@ -303,11 +297,10 @@ html,body{
         <div class="value-title en">VISION</div>
         <div class="value-title ar">رؤيتنا</div>
         <div class="value-text en">
-          To establish a strong and trusted presence in the electromechanical contracting
-          sector, locally and regionally.
+          To establish a strong and trusted presence in the electromechanical contracting sector.
         </div>
         <div class="value-text ar">
-          بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا.
+          بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية.
         </div>
       </div>
 
