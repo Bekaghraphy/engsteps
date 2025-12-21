@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STEPS | Engineering Excellence</title>
+<title>STEPS | Home</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --black:#050505;
-  --overlay:rgba(0,0,0,0.82); /* سواد أعلى */
+  --overlay:rgba(0,0,0,0.85);
   --orange:#ff7a18;
   --white:#ffffff;
 }
@@ -43,8 +43,8 @@ nav{
 }
 
 nav .logo{
-  font-weight:800;
   font-size:20px;
+  font-weight:800;
   color:var(--white);
 }
 
@@ -59,7 +59,6 @@ nav ul li a{
   color:var(--white);
   font-size:13px;
   font-weight:500;
-  letter-spacing:0.6px;
   transition:0.3s;
 }
 
@@ -79,7 +78,7 @@ nav ul li a:hover{
   overflow:hidden;
 }
 
-/* Background Image + Zoom */
+/* Background */
 .hero::before{
   content:"";
   position:absolute;
@@ -94,7 +93,7 @@ nav ul li a:hover{
   to{transform:scale(1.12);}
 }
 
-/* Dark Overlay */
+/* Overlay */
 .hero::after{
   content:"";
   position:absolute;
@@ -109,85 +108,65 @@ nav ul li a:hover{
   z-index:3;
   max-width:900px;
   padding-left:90px;
-  padding-right:40px;
-  animation: contentEnter 1.4s ease forwards;
+  animation:contentEnter 1.2s ease forwards;
 }
 
 @keyframes contentEnter{
-  from{
-    opacity:0;
-    transform:translateX(-60px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
+  from{opacity:0; transform:translateX(-40px);}
+  to{opacity:1; transform:translateX(0);}
 }
 
-.content p{
-  font-size:15px;
-  line-height:1.9;
-  opacity:0.9;
-  margin-bottom:35px;
-  text-align:left;
-}
-
-/* Contact Button */
-.contact-btn{
-  display:inline-block;
-  padding:14px 42px;
-  border-radius:50px;
-  background:var(--orange);
-  color:#000;
-  font-size:14px;
-  font-weight:600;
-  text-decoration:none;
-  transition:0.35s;
-}
-
-.contact-btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 35px rgba(255,122,24,0.95);
-}
-
-/* ================= VISION / MISSION ================= */
-.values{
-  display:flex;
-  gap:70px;
-  margin-top:60px;
-}
-
-.value-box{
-  max-width:260px;
-}
-
-.value-box .icon{
-  width:58px;
-  height:58px;
-  margin-bottom:18px;
-  border-radius:50%;
-  border:1px solid rgba(255,255,255,0.25);
+/* ================= ABOUT TITLE ================= */
+.about-header{
   display:flex;
   align-items:center;
-  justify-content:center;
+  gap:18px;
+  margin-bottom:25px;
+}
+
+/* Orange Line */
+.about-line{
+  width:50px;
+  height:2px;
+  background:var(--orange);
+  animation:lineReveal 0.8s ease forwards;
+}
+
+@keyframes lineReveal{
+  from{width:0;}
+  to{width:50px;}
+}
+
+/* ABOUT Text */
+.about-title{
   font-size:20px;
+  font-weight:800;
+  letter-spacing:3px;
   color:var(--orange);
-  transition:0.3s;
+  animation:aboutPulse 2.5s ease-in-out infinite;
+  text-shadow:
+    0 0 8px rgba(255,122,24,0.6),
+    0 0 20px rgba(255,122,24,0.35);
 }
 
-.value-box:hover .icon{
-  box-shadow:0 0 28px rgba(255,122,24,0.9);
+@keyframes aboutPulse{
+  0%{text-shadow:0 0 8px rgba(255,122,24,0.4);}
+  50%{text-shadow:0 0 18px rgba(255,122,24,0.9);}
+  100%{text-shadow:0 0 8px rgba(255,122,24,0.4);}
 }
 
-.value-box h3{
-  font-size:16px;
-  margin-bottom:8px;
+/* ================= TEXT ================= */
+.about-text{
+  font-size:15px;
+  line-height:1.9;
+  opacity:0;
+  animation:textFade 1.2s ease forwards;
+  animation-delay:0.8s;
 }
 
-.value-box p{
-  font-size:13px;
-  opacity:0.8;
-  line-height:1.6;
+@keyframes textFade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:0.9; transform:translateY(0);}
 }
 
 /* ================= FOOTER ================= */
@@ -212,10 +191,6 @@ footer{
   .content{
     padding:0 25px;
   }
-  .values{
-    flex-direction:column;
-    gap:35px;
-  }
 }
 </style>
 </head>
@@ -235,27 +210,18 @@ footer{
 
 <section class="hero">
   <div class="content">
-    <p>
-ABOUT:
-With over 20 years of engineering expertise, STEPS delivers integrated construction solutions with uncompromising quality, safety, and efficiency.
-Every project is a step toward a stronger future, built on innovation and technical excellence.
+
+    <div class="about-header">
+      <div class="about-line"></div>
+      <div class="about-title">ABOUT</div>
+    </div>
+
+    <p class="about-text">
+      With over 20 years of engineering expertise, STEPS delivers integrated construction
+      solutions with uncompromising quality, safety, and efficiency.
+      Every project is a step toward a stronger future, built on innovation and technical excellence.
     </p>
 
-    <a href="#" class="contact-btn">Contact Us</a>
-
-    <div class="values">
-      <div class="value-box">
-        <div class="icon">👁</div>
-        <h3>Vision</h3>
-        <p>To lead the industry through innovation, excellence, and sustainable engineering solutions.</p>
-      </div>
-
-      <div class="value-box">
-        <div class="icon">🎯</div>
-        <h3>Mission</h3>
-        <p>Deliver high-quality projects through expertise, integrity, and commitment to client success.</p>
-      </div>
-    </div>
   </div>
 </section>
 
