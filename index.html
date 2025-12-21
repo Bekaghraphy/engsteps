@@ -54,6 +54,7 @@ html,body{
   font-size:11px;
   color:#fff;
   cursor:pointer;
+  transition:.3s;
 }
 
 #langToggle:not(:checked) ~ .lang-toggle .en,
@@ -62,30 +63,27 @@ html,body{
   box-shadow:0 0 16px rgba(255,122,24,.9);
 }
 
-/* ================= NAV ================= */
+/* ================= NAV (FIXED CENTER + GLOW) ================= */
 .main-nav{
   position:absolute;
   top:0;
   width:100%;
   padding:25px 70px;
-  display:flex;
+  display:grid;
+  grid-template-columns:1fr auto 1fr; /* التوسيط الحقيقي */
   align-items:center;
   z-index:5;
 }
 
-.main-nav .logo{
+.logo{
   font-weight:800;
   color:#fff;
 }
 
-/* centered nav */
 .nav-links{
   list-style:none;
   display:flex;
-  gap:45px;
-  position:absolute;
-  inset-inline:50%;
-  transform:translateX(-50%);
+  gap:48px;
 }
 
 .nav-links li a{
@@ -93,6 +91,21 @@ html,body{
   font-size:15px;
   text-decoration:none;
   font-weight:500;
+  transition:.25s;
+}
+
+/* Glow on hover */
+.nav-links li a:hover{
+  color:var(--orange);
+  text-shadow:0 0 14px rgba(255,122,24,.9);
+}
+
+/* Glow on click */
+.nav-links li a:active{
+  color:var(--orange);
+  text-shadow:
+    0 0 10px rgba(255,122,24,1),
+    0 0 22px rgba(255,122,24,.9);
 }
 
 /* ================= HERO ================= */
@@ -199,11 +212,11 @@ html,body{
   bottom:25px;
   width:100%;
   text-align:center;
-  font-size:11px;
-  opacity:.65;
+  font-size:12px;
+  letter-spacing:1px;
+  color:rgba(255,255,255,.65);
   z-index:6;
 }
-
 /* ================= MOBILE ================= */
 @media(max-width:900px){
   .values{
@@ -223,6 +236,7 @@ html,body{
 
 <nav class="main-nav">
   <div class="logo">STEPS</div>
+
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="#">Services</a></li>
@@ -230,6 +244,8 @@ html,body{
     <li><a href="#">Clients</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
+
+  <div></div>
 </nav>
 
 <section class="hero">
@@ -303,6 +319,9 @@ html,body{
 <div class="footer">
   COPYRIGHT © 2024 STEPS - ALL RIGHTS RESERVED.
 </div>
+<footer class="footer">
+  COPYRIGHT © 2024 STEPS - ALL RIGHTS RESERVED.
+</footer>
 
 </body>
 </html>
