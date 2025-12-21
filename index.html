@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Company | Cinematic Landing</title>
+<title>STEPS | Engineering Excellence</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --black:#050505;
+  --overlay:rgba(0,0,0,0.7);
   --orange:#ff7a18;
-  --orange-soft:rgba(255,122,24,0.35);
   --white:#ffffff;
 }
 
@@ -30,129 +29,186 @@ html,body{
   background:var(--black);
 }
 
-/* =======================
-   HERO SECTION
-======================= */
+/* ================= NAV BAR ================= */
+nav{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding:25px 70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:5;
+}
+
+nav .logo{
+  font-weight:800;
+  font-size:20px;
+  color:var(--white);
+  letter-spacing:1px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:35px;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:var(--white);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.6px;
+  position:relative;
+  transition:0.3s;
+}
+
+nav ul li a:hover{
+  color:var(--orange);
+  text-shadow:0 0 12px rgba(255,122,24,0.8);
+}
+
+/* ================= HERO ================= */
 .hero{
   position:relative;
   width:100%;
   height:100vh;
   display:flex;
-  align-items:center;
+  flex-direction:column;
   justify-content:center;
+  align-items:center;
   text-align:center;
   color:var(--white);
   overflow:hidden;
 }
 
-/* ===== Cinematic Background ===== */
+/* Background Image with Zoom */
 .hero::before{
   content:"";
   position:absolute;
-  inset:-20%;
-  background:
-    radial-gradient(circle at 20% 30%, var(--orange-soft), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05), transparent 35%),
-    linear-gradient(120deg, #0b0b0b, #000000);
-  animation: cinematicMove 18s ease-in-out infinite alternate;
+  inset:0;
+  background:url("BG.png") center/cover no-repeat;
+  animation: bgZoom 20s ease-in-out infinite alternate;
   z-index:1;
 }
 
-@keyframes cinematicMove{
-  0%{transform:scale(1) translate(0,0);}
-  100%{transform:scale(1.15) translate(-40px,-30px);}
+@keyframes bgZoom{
+  0%{transform:scale(1);}
+  100%{transform:scale(1.1);}
 }
 
-/* ===== Dark Overlay ===== */
+/* Dark Overlay */
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.75)
-  );
+  background:var(--overlay);
   z-index:2;
 }
 
-/* ===== Content ===== */
-.hero-content{
+/* ================= CONTENT ================= */
+.content{
   position:relative;
   z-index:3;
-  max-width:900px;
-  padding:0 20px;
-  animation: fadeUp 1.4s ease forwards;
+  max-width:1100px;
+  padding:0 40px;
+  animation: fadeUp 1.6s ease forwards;
 }
 
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
+  from{opacity:0; transform:translateY(40px);}
   to{opacity:1; transform:translateY(0);}
 }
 
-.hero-content h1{
-  font-size:clamp(36px, 6vw, 68px);
-  font-weight:800;
-  line-height:1.1;
-  margin-bottom:18px;
+.content p{
+  font-size:15px;
+  line-height:1.9;
+  opacity:0.9;
+  margin-bottom:35px;
 }
 
-.hero-content h1 span{
-  color:var(--orange);
-}
-
-.hero-content p{
-  font-size:clamp(14px, 2vw, 18px);
-  font-weight:400;
-  line-height:1.6;
-  opacity:0.85;
-  margin-bottom:40px;
-}
-
-/* ===== CTA ===== */
-.cta{
-  display:inline-flex;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.cta a{
-  text-decoration:none;
-  padding:14px 34px;
-  border-radius:40px;
-  font-size:14px;
-  font-weight:600;
-  letter-spacing:0.5px;
-  transition:all 0.35s ease;
-}
-
-/* Primary */
-.cta .primary{
+/* Contact Button */
+.contact-btn{
+  display:inline-block;
+  padding:14px 40px;
+  border-radius:50px;
   background:var(--orange);
   color:#000;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.35s;
 }
 
-.cta .primary:hover{
+.contact-btn:hover{
   transform:translateY(-3px);
-  box-shadow:0 15px 40px rgba(255,122,24,0.35);
+  box-shadow:0 0 30px rgba(255,122,24,0.9);
 }
 
-/* Secondary */
-.cta .secondary{
+/* ================= VISION / MISSION ================= */
+.values{
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  margin-top:60px;
+}
+
+.value-box{
+  max-width:260px;
+  text-align:center;
+  animation: fadeUp 2s ease forwards;
+}
+
+.value-box .icon{
+  width:60px;
+  height:60px;
+  margin:0 auto 20px;
+  border-radius:50%;
   border:1px solid rgba(255,255,255,0.25);
-  color:var(--white);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+  color:var(--orange);
+  transition:0.3s;
 }
 
-.cta .secondary:hover{
-  background:rgba(255,255,255,0.08);
-  transform:translateY(-3px);
+.value-box:hover .icon{
+  box-shadow:0 0 25px rgba(255,122,24,0.8);
 }
 
-/* ===== Mobile Fine Tuning ===== */
-@media(max-width:600px){
-  .hero-content p{
-    margin-bottom:30px;
+.value-box h3{
+  font-size:16px;
+  margin-bottom:10px;
+}
+
+.value-box p{
+  font-size:13px;
+  opacity:0.8;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  position:absolute;
+  bottom:25px;
+  z-index:4;
+  font-size:12px;
+  opacity:0.6;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+  nav{
+    padding:20px 30px;
+  }
+  nav ul{
+    display:none;
+  }
+  .values{
+    flex-direction:column;
+    gap:40px;
   }
 }
 </style>
@@ -160,25 +216,53 @@ html,body{
 
 <body>
 
-<section class="hero">
-  <div class="hero-content">
-    <h1>
-      We Build<br>
-      <span>Cinematic Digital</span><br>
-      Experiences
-    </h1>
+<nav>
+  <div class="logo">STEPS</div>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Our Projects</a></li>
+    <li><a href="#">Our Valuable Clients</a></li>
+    <li><a href="#">Contact Us</a></li>
+  </ul>
+</nav>
 
+<section class="hero">
+  <div class="content">
     <p>
-      A company driven by vision, design, and technology — creating powerful digital
-      identities that leave a lasting impact.
+      STEPS is built on over two decades of solid engineering expertise in the contracting and construction sector.
+      We operate as an integrated engineering partner, committed to delivering projects with exceptional quality,
+      safety, and efficiency.
+      <br><br>
+      Our leadership team brings extensive experience from major regional and international organizations across
+      construction, infrastructure, project management, operations, and industrial facilities.
+      <br><br>
+      By unifying this depth of knowledge, STEPS provides smart, comprehensive solutions tailored to each project’s needs.
+      Every project represents a meaningful step toward a stronger, more advanced future — delivered through technical
+      excellence, innovation, and a steadfast commitment to our clients.
     </p>
 
-    <div class="cta">
-      <a href="#" class="primary">Explore</a>
-      <a href="#" class="secondary">Contact Us</a>
+    <a href="#" class="contact-btn">Contact Us</a>
+
+    <div class="values">
+      <div class="value-box">
+        <div class="icon">👁</div>
+        <h3>Vision</h3>
+        <p>To lead the industry through innovation, excellence, and sustainable engineering solutions.</p>
+      </div>
+
+      <div class="value-box">
+        <div class="icon">🎯</div>
+        <h3>Mission</h3>
+        <p>Deliver high-quality projects through expertise, integrity, and commitment to client success.</p>
+      </div>
     </div>
   </div>
 </section>
+
+<footer>
+  © 2025 STEPS | All rights reserved.
+</footer>
 
 </body>
 </html>
