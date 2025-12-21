@@ -10,7 +10,7 @@
 <style>
 :root{
   --black:#050505;
-  --overlay:rgba(0,0,0,0.88);
+  --overlay:rgba(0,0,0,0.72); /* ⬅ خفّفنا القتامة فقط */
   --orange:#ff7a18;
   --white:#ffffff;
 }
@@ -84,20 +84,49 @@ html,body{
   color:#fff;
 }
 
+/* BACKGROUND SLIDESHOW WITH DISSOLVE */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background:url("BG.png") center/cover no-repeat;
-  animation:bgZoom 22s ease-in-out infinite alternate;
+  background-size:cover;
+  background-position:center;
+  animation:bgSlide 28s ease-in-out infinite;
   z-index:1;
 }
 
-@keyframes bgZoom{
-  from{transform:scale(1);}
-  to{transform:scale(1.12);}
+@keyframes bgSlide{
+  0%{
+    background-image:url("BG.png");
+    opacity:1;
+  }
+  22%{
+    opacity:1;
+  }
+  25%{
+    background-image:url("pic2.jpg");
+    opacity:1;
+  }
+  47%{
+    opacity:1;
+  }
+  50%{
+    background-image:url("pic3.jpg");
+    opacity:1;
+  }
+  72%{
+    opacity:1;
+  }
+  75%{
+    background-image:url("pic4.jpg");
+    opacity:1;
+  }
+  100%{
+    opacity:1;
+  }
 }
 
+/* OVERLAY */
 .hero::after{
   content:"";
   position:absolute;
@@ -113,7 +142,7 @@ html,body{
   padding:95px 90px 80px;
 }
 
-/* ================= ABOUT (TEXT BIGGER) ================= */
+/* ================= ABOUT ================= */
 .about-title{
   color:var(--orange);
   font-size:34px;
@@ -130,7 +159,7 @@ html,body{
 
 .about-text{
   max-width:900px;
-  font-size:20px;               /* ⬅ كبرنا */
+  font-size:20px;
   line-height:2.4;
   opacity:.97;
 }
@@ -144,7 +173,7 @@ html,body{
   box-shadow:0 0 18px rgba(255,122,24,.6);
 }
 
-/* ================= VALUES (TEXT BIGGER + CLICK GLOW) ================= */
+/* ================= VALUES ================= */
 .values{
   display:flex;
   justify-content:center;
@@ -155,7 +184,6 @@ html,body{
 .value-item{
   max-width:320px;
   cursor:pointer;
-  transition:.3s;
 }
 
 .value-item:active{
@@ -168,13 +196,13 @@ html,body{
 }
 
 .value-title{
-  font-size:22px;              /* ⬅ أكبر */
+  font-size:22px;
   font-weight:800;
   margin-bottom:14px;
 }
 
 .value-text{
-  font-size:17px;              /* ⬅ أكبر */
+  font-size:17px;
   line-height:2.1;
   opacity:.95;
 }
@@ -276,11 +304,10 @@ html,body{
         <div class="value-title ar">رؤيتنا</div>
         <div class="value-text en">
           To establish a strong and trusted presence in the electromechanical contracting
-          sector, locally and regionally, through consistent quality and engineering excellence.
+          sector, locally and regionally.
         </div>
         <div class="value-text ar">
-          بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا
-          من خلال الجودة المستمرة والتميّز الهندسي.
+          بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا.
         </div>
       </div>
 
@@ -289,12 +316,10 @@ html,body{
         <div class="value-title en">MISSION</div>
         <div class="value-title ar">مهمتنا</div>
         <div class="value-text en">
-          Deliver smart, reliable, and efficient engineering solutions powered by skilled
-          teams, modern practices, and a commitment to excellence.
+          Deliver smart and reliable engineering solutions powered by skilled teams.
         </div>
         <div class="value-text ar">
-          تقديم حلول هندسية ذكية وموثوقة وفعّالة مدعومة بفرق محترفة
-          وممارسات حديثة والتزام كامل بالتميّز.
+          تقديم حلول هندسية ذكية وموثوقة بفرق عمل محترفة.
         </div>
       </div>
 
@@ -303,12 +328,10 @@ html,body{
         <div class="value-title en">COMMITMENT</div>
         <div class="value-title ar">التزامنا</div>
         <div class="value-text en">
-          We are committed to precision, innovation, and client satisfaction,
-          ensuring every project becomes a long-term success.
+          Precision, innovation, and client satisfaction in every project.
         </div>
         <div class="value-text ar">
-          نلتزم بالدقة والابتكار ورضا العملاء، لضمان أن يكون كل مشروع
-          قصة نجاح مستمرة على المدى الطويل.
+          الالتزام بالدقة والابتكار ورضا العملاء في كل مشروع.
         </div>
       </div>
 
