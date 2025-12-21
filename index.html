@@ -180,22 +180,63 @@ nav ul li a:hover{
 .values{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:40px;
+  gap:60px;
   margin-top:70px;
 }
 
-.value-box{
-  border:1px solid rgba(255,255,255,.15);
-  padding:30px;
-  transition:.3s;
+.value-item{
+  max-width:320px;
+  transition:.35s;
 }
 
-.value-box:hover,
-.value-box:active{
-  box-shadow:0 0 40px rgba(255,122,24,.8);
-  border-color:var(--orange);
+.value-head{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+  cursor:pointer;
 }
 
+.value-icon{
+  font-size:20px;
+  animation: iconFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-4px);}
+}
+
+.value-title{
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.value-text{
+  font-size:13px;
+  line-height:1.7;
+  opacity:.85;
+  margin-top:6px;
+}
+
+/* Glow on hover / click */
+.value-item:hover,
+.value-item:active{
+  text-shadow:0 0 18px rgba(255,122,24,.6);
+}
+
+.value-item:hover .value-icon{
+  text-shadow:0 0 15px rgba(255,122,24,.9);
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .values{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+}
 /* ================= SOCIAL ================= */
 .social{
   position:absolute;
@@ -291,12 +332,48 @@ footer{
     </p>
 
     <div class="values">
-      <div class="value-box"><strong>VISION</strong></div>
-      <div class="value-box"><strong>MISSION</strong></div>
-      <div class="value-box"><strong>COMMITMENT</strong></div>
+  <div class="value-item">
+    <div class="value-head">
+      <span class="value-icon">👁</span>
+      <span class="value-title en">VISION</span>
+      <span class="value-title ar">رؤيتنا</span>
     </div>
-
+    <p class="value-text en">
+      To shape a strong presence in the electromechanical contracting field locally and regionally.
+    </p>
+    <p class="value-text ar">
+      بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا.
+    </p>
   </div>
+
+  <div class="value-item">
+    <div class="value-head">
+      <span class="value-icon">🎯</span>
+      <span class="value-title en">MISSION</span>
+      <span class="value-title ar">مهمتنا</span>
+    </div>
+    <p class="value-text en">
+      Deliver smart and reliable engineering solutions powered by skilled teams.
+    </p>
+    <p class="value-text ar">
+      تقديم حلول هندسية ذكية وموثوقة مدفوعة بفِرق عمل محترفة.
+    </p>
+  </div>
+
+  <div class="value-item">
+    <div class="value-head">
+      <span class="value-icon">🤝</span>
+      <span class="value-title en">COMMITMENT</span>
+      <span class="value-title ar">التزامنا</span>
+    </div>
+    <p class="value-text en">
+      Precision, innovation, and client satisfaction in every project we deliver.
+    </p>
+    <p class="value-text ar">
+      الالتزام بالدقة والابتكار ورضا العملاء في كل مشروع نقوم بتنفيذه.
+    </p>
+  </div>
+</div>
 </section>
 
 <div class="lang-toggle">
