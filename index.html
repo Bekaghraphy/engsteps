@@ -10,7 +10,7 @@
 <style>
 :root{
   --black:#050505;
-  --overlay:rgba(0,0,0,0.7);
+  --overlay:rgba(0,0,0,0.82); /* سواد أعلى */
   --orange:#ff7a18;
   --white:#ffffff;
 }
@@ -29,7 +29,7 @@ html,body{
   background:var(--black);
 }
 
-/* ================= NAV BAR ================= */
+/* ================= NAV ================= */
 nav{
   position:absolute;
   top:0;
@@ -46,7 +46,6 @@ nav .logo{
   font-weight:800;
   font-size:20px;
   color:var(--white);
-  letter-spacing:1px;
 }
 
 nav ul{
@@ -61,13 +60,12 @@ nav ul li a{
   font-size:13px;
   font-weight:500;
   letter-spacing:0.6px;
-  position:relative;
   transition:0.3s;
 }
 
 nav ul li a:hover{
   color:var(--orange);
-  text-shadow:0 0 12px rgba(255,122,24,0.8);
+  text-shadow:0 0 14px rgba(255,122,24,0.9);
 }
 
 /* ================= HERO ================= */
@@ -76,27 +74,24 @@ nav ul li a:hover{
   width:100%;
   height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
-  text-align:center;
   color:var(--white);
   overflow:hidden;
 }
 
-/* Background Image with Zoom */
+/* Background Image + Zoom */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
   background:url("BG.png") center/cover no-repeat;
-  animation: bgZoom 20s ease-in-out infinite alternate;
+  animation:bgZoom 22s ease-in-out infinite alternate;
   z-index:1;
 }
 
 @keyframes bgZoom{
-  0%{transform:scale(1);}
-  100%{transform:scale(1.1);}
+  from{transform:scale(1);}
+  to{transform:scale(1.12);}
 }
 
 /* Dark Overlay */
@@ -112,14 +107,21 @@ nav ul li a:hover{
 .content{
   position:relative;
   z-index:3;
-  max-width:1100px;
-  padding:0 40px;
-  animation: fadeUp 1.6s ease forwards;
+  max-width:900px;
+  padding-left:90px;
+  padding-right:40px;
+  animation: contentEnter 1.4s ease forwards;
 }
 
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(40px);}
-  to{opacity:1; transform:translateY(0);}
+@keyframes contentEnter{
+  from{
+    opacity:0;
+    transform:translateX(-60px);
+  }
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
 }
 
 .content p{
@@ -127,12 +129,13 @@ nav ul li a:hover{
   line-height:1.9;
   opacity:0.9;
   margin-bottom:35px;
+  text-align:left;
 }
 
 /* Contact Button */
 .contact-btn{
   display:inline-block;
-  padding:14px 40px;
+  padding:14px 42px;
   border-radius:50px;
   background:var(--orange);
   color:#000;
@@ -144,27 +147,24 @@ nav ul li a:hover{
 
 .contact-btn:hover{
   transform:translateY(-3px);
-  box-shadow:0 0 30px rgba(255,122,24,0.9);
+  box-shadow:0 0 35px rgba(255,122,24,0.95);
 }
 
 /* ================= VISION / MISSION ================= */
 .values{
   display:flex;
-  justify-content:center;
-  gap:80px;
+  gap:70px;
   margin-top:60px;
 }
 
 .value-box{
   max-width:260px;
-  text-align:center;
-  animation: fadeUp 2s ease forwards;
 }
 
 .value-box .icon{
-  width:60px;
-  height:60px;
-  margin:0 auto 20px;
+  width:58px;
+  height:58px;
+  margin-bottom:18px;
   border-radius:50%;
   border:1px solid rgba(255,255,255,0.25);
   display:flex;
@@ -176,39 +176,45 @@ nav ul li a:hover{
 }
 
 .value-box:hover .icon{
-  box-shadow:0 0 25px rgba(255,122,24,0.8);
+  box-shadow:0 0 28px rgba(255,122,24,0.9);
 }
 
 .value-box h3{
   font-size:16px;
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .value-box p{
   font-size:13px;
   opacity:0.8;
+  line-height:1.6;
 }
 
 /* ================= FOOTER ================= */
 footer{
   position:absolute;
   bottom:25px;
-  z-index:4;
+  width:100%;
+  text-align:center;
   font-size:12px;
   opacity:0.6;
+  z-index:4;
 }
 
 /* ================= MOBILE ================= */
 @media(max-width:900px){
   nav{
-    padding:20px 30px;
+    padding:20px 25px;
   }
   nav ul{
     display:none;
   }
+  .content{
+    padding:0 25px;
+  }
   .values{
     flex-direction:column;
-    gap:40px;
+    gap:35px;
   }
 }
 </style>
