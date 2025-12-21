@@ -29,7 +29,7 @@ html,body{
   background:var(--black);
 }
 
-/* ================= LANGUAGE TOGGLE ================= */
+/* ================= TOGGLE ================= */
 #langToggle{display:none;}
 .en{display:block;}
 .ar{display:none;}
@@ -38,39 +38,14 @@ html,body{
 #langToggle:checked ~ .hero .ar{display:block;}
 #langToggle:checked ~ .hero{direction:rtl;}
 
-.lang-toggle{
-  position:absolute;
-  bottom:115px;
-  width:100%;
-  display:flex;
-  justify-content:center;
-  z-index:6;
-}
-
-.lang-toggle label{
-  padding:6px 16px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.4);
-  font-size:11px;
-  color:#fff;
-  cursor:pointer;
-  transition:.3s;
-}
-
-#langToggle:not(:checked) ~ .lang-toggle .en,
-#langToggle:checked ~ .lang-toggle .ar{
-  border-color:var(--orange);
-  box-shadow:0 0 16px rgba(255,122,24,.9);
-}
-
-/* ================= NAV (FIXED CENTER + GLOW) ================= */
+/* ================= NAV (UNCHANGED) ================= */
 .main-nav{
   position:absolute;
   top:0;
   width:100%;
   padding:25px 70px;
   display:grid;
-  grid-template-columns:1fr auto 1fr; /* التوسيط الحقيقي */
+  grid-template-columns:1fr auto 1fr;
   align-items:center;
   z-index:5;
 }
@@ -94,18 +69,10 @@ html,body{
   transition:.25s;
 }
 
-/* Glow on hover */
-.nav-links li a:hover{
-  color:var(--orange);
-  text-shadow:0 0 14px rgba(255,122,24,.9);
-}
-
-/* Glow on click */
+.nav-links li a:hover,
 .nav-links li a:active{
   color:var(--orange);
-  text-shadow:
-    0 0 10px rgba(255,122,24,1),
-    0 0 22px rgba(255,122,24,.9);
+  text-shadow:0 0 16px rgba(255,122,24,.9);
 }
 
 /* ================= HERO ================= */
@@ -146,10 +113,10 @@ html,body{
   padding:95px 90px 80px;
 }
 
-/* ================= ABOUT ================= */
+/* ================= ABOUT (TEXT BIGGER) ================= */
 .about-title{
   color:var(--orange);
-  font-size:30px;
+  font-size:34px;
   font-weight:800;
   letter-spacing:4px;
 }
@@ -158,26 +125,26 @@ html,body{
   width:120px;
   height:2px;
   background:var(--orange);
-  margin:10px 0 28px;
+  margin:14px 0 30px;
 }
 
 .about-text{
-  max-width:700px;
-  font-size:15px;
-  line-height:2.1;
-  opacity:.95;
+  max-width:900px;
+  font-size:20px;               /* ⬅ كبرنا */
+  line-height:2.4;
+  opacity:.97;
 }
 
 /* ================= CENTER LINE ================= */
 .center-divider{
   width:520px;
   height:1px;
-  margin:50px auto 60px;
+  margin:60px auto 70px;
   background:rgba(255,122,24,.85);
   box-shadow:0 0 18px rgba(255,122,24,.6);
 }
 
-/* ================= VALUES ================= */
+/* ================= VALUES (TEXT BIGGER + CLICK GLOW) ================= */
 .values{
   display:flex;
   justify-content:center;
@@ -186,24 +153,55 @@ html,body{
 }
 
 .value-item{
-  max-width:240px;
+  max-width:320px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.value-item:active{
+  text-shadow:0 0 18px rgba(255,122,24,.9);
 }
 
 .value-icon{
-  font-size:26px;
-  margin-bottom:14px;
+  font-size:30px;
+  margin-bottom:18px;
 }
 
 .value-title{
-  font-size:17px;
+  font-size:22px;              /* ⬅ أكبر */
   font-weight:800;
-  margin-bottom:10px;
+  margin-bottom:14px;
 }
 
 .value-text{
-  font-size:13.5px;
-  line-height:1.85;
-  opacity:.85;
+  font-size:17px;              /* ⬅ أكبر */
+  line-height:2.1;
+  opacity:.95;
+}
+
+/* ================= TOGGLE ================= */
+.lang-toggle{
+  position:absolute;
+  bottom:115px;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  z-index:6;
+}
+
+.lang-toggle label{
+  padding:6px 16px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.4);
+  font-size:11px;
+  color:#fff;
+  cursor:pointer;
+}
+
+#langToggle:not(:checked) ~ .lang-toggle .en,
+#langToggle:checked ~ .lang-toggle .ar{
+  border-color:var(--orange);
+  box-shadow:0 0 16px rgba(255,122,24,.9);
 }
 
 /* ================= FOOTER ================= */
@@ -212,11 +210,11 @@ html,body{
   bottom:25px;
   width:100%;
   text-align:center;
-  font-size:12px;
-  letter-spacing:1px;
-  color:rgba(255,255,255,.65);
+  font-size:11px;
+  opacity:.65;
   z-index:6;
 }
+
 /* ================= MOBILE ================= */
 @media(max-width:900px){
   .values{
@@ -236,7 +234,6 @@ html,body{
 
 <nav class="main-nav">
   <div class="logo">STEPS</div>
-
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="#">Services</a></li>
@@ -244,7 +241,6 @@ html,body{
     <li><a href="#">Clients</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
-
   <div></div>
 </nav>
 
@@ -257,13 +253,16 @@ html,body{
     <div class="about-underline"></div>
 
     <p class="about-text en">
-      With over 20 years of engineering expertise, STEPS delivers integrated construction
-      solutions with uncompromising quality, safety, and efficiency.
+      With over 20 years of engineering excellence, STEPS delivers fully integrated
+      electromechanical construction solutions. Our approach combines precision,
+      innovation, and uncompromising quality to ensure safety, efficiency, and long-term
+      value across every project we deliver.
     </p>
 
     <p class="about-text ar">
-      بخبرة تتجاوز 20 عامًا، تقدم STEPS حلولًا متكاملة في المقاولات الكهروميكانيكية
-      بأعلى معايير الجودة والسلامة والكفاءة.
+      بخبرة تمتد لأكثر من 20 عامًا، تقدم STEPS حلولًا متكاملة في المقاولات
+      الكهروميكانيكية، تجمع بين الدقة الهندسية والابتكار والجودة العالية،
+      لضمان السلامة والكفاءة وتحقيق قيمة مستدامة في كل مشروع.
     </p>
 
     <div class="center-divider"></div>
@@ -275,10 +274,12 @@ html,body{
         <div class="value-title en">VISION</div>
         <div class="value-title ar">رؤيتنا</div>
         <div class="value-text en">
-          To shape a strong presence in the electromechanical contracting field locally and regionally.
+          To establish a strong and trusted presence in the electromechanical contracting
+          sector, locally and regionally, through consistent quality and engineering excellence.
         </div>
         <div class="value-text ar">
-          بناء حضور قوي في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا.
+          بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا
+          من خلال الجودة المستمرة والتميّز الهندسي.
         </div>
       </div>
 
@@ -287,10 +288,12 @@ html,body{
         <div class="value-title en">MISSION</div>
         <div class="value-title ar">مهمتنا</div>
         <div class="value-text en">
-          Deliver smart and reliable engineering solutions powered by skilled teams.
+          Deliver smart, reliable, and efficient engineering solutions powered by skilled
+          teams, modern practices, and a commitment to excellence.
         </div>
         <div class="value-text ar">
-          تقديم حلول هندسية ذكية وموثوقة بفرق عمل محترفة.
+          تقديم حلول هندسية ذكية وموثوقة وفعّالة مدعومة بفرق محترفة
+          وممارسات حديثة والتزام كامل بالتميّز.
         </div>
       </div>
 
@@ -299,10 +302,12 @@ html,body{
         <div class="value-title en">COMMITMENT</div>
         <div class="value-title ar">التزامنا</div>
         <div class="value-text en">
-          Precision, innovation, and client satisfaction in every project we deliver.
+          We are committed to precision, innovation, and client satisfaction,
+          ensuring every project becomes a long-term success.
         </div>
         <div class="value-text ar">
-          الالتزام بالدقة والابتكار ورضا العملاء في كل مشروع.
+          نلتزم بالدقة والابتكار ورضا العملاء، لضمان أن يكون كل مشروع
+          قصة نجاح مستمرة على المدى الطويل.
         </div>
       </div>
 
@@ -319,9 +324,6 @@ html,body{
 <div class="footer">
   COPYRIGHT © 2024 STEPS - ALL RIGHTS RESERVED.
 </div>
-<footer class="footer">
-  COPYRIGHT © 2024 STEPS - ALL RIGHTS RESERVED.
-</footer>
 
 </body>
 </html>
