@@ -34,18 +34,18 @@ html,body{
 
 .lang-toggle{
   position:absolute;
-  bottom:130px;
+  bottom:125px;
   width:100%;
   display:flex;
   justify-content:center;
-  gap:15px;
+  gap:14px;
   z-index:6;
 }
 
 .lang-toggle label{
-  padding:8px 18px;
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,0.4);
+  padding:7px 18px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.45);
   font-size:12px;
   cursor:pointer;
   color:var(--white);
@@ -53,16 +53,16 @@ html,body{
 }
 
 .lang-toggle label:hover{
-  box-shadow:0 0 20px rgba(255,122,24,.8);
+  box-shadow:0 0 18px rgba(255,122,24,.85);
 }
 
 #langToggle:not(:checked) ~ .lang-toggle .en{
-  box-shadow:0 0 25px rgba(255,122,24,1);
+  box-shadow:0 0 22px rgba(255,122,24,1);
   border-color:var(--orange);
 }
 
 #langToggle:checked ~ .lang-toggle .ar{
-  box-shadow:0 0 25px rgba(255,122,24,1);
+  box-shadow:0 0 22px rgba(255,122,24,1);
   border-color:var(--orange);
 }
 
@@ -139,7 +139,7 @@ nav ul li a:hover{
   position:relative;
   z-index:3;
   max-width:1200px;
-  padding:120px 90px 80px;
+  padding:80px 90px 80px;
 }
 
 /* ================= ABOUT ================= */
@@ -147,104 +147,93 @@ nav ul li a:hover{
   display:flex;
   align-items:center;
   gap:18px;
-  margin-bottom:25px;
-}
-
-.about-line{
-  width:50px;
-  height:2px;
-  background:var(--orange);
 }
 
 .about-title{
-  font-size:20px;
+  font-size:28px;
   font-weight:800;
-  letter-spacing:3px;
+  letter-spacing:4px;
   color:var(--orange);
-  animation:pulse 2.5s infinite;
 }
 
-@keyframes pulse{
-  0%,100%{text-shadow:0 0 8px rgba(255,122,24,.4);}
-  50%{text-shadow:0 0 22px rgba(255,122,24,1);}
+.about-glow-line{
+  width:140px;
+  height:2px;
+  background:var(--orange);
+  margin:16px 0 32px;
+  box-shadow:0 0 30px rgba(255,122,24,1);
+  animation: linePulse 2.5s ease-in-out infinite;
+}
+
+@keyframes linePulse{
+  0%,100%{opacity:.4;}
+  50%{opacity:1;}
 }
 
 .about-text{
-  max-width:850px;
-  font-size:15px;
-  line-height:2;
-  opacity:.9;
+  max-width:900px;
+  font-size:17px;
+  line-height:2.1;
+  opacity:.95;
 }
 
 /* ================= VALUES ================= */
 .values{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:60px;
-  margin-top:70px;
+  margin-top:85px;
+  display:flex;
+  justify-content:center;
+  gap:90px;
+  text-align:center;
 }
 
 .value-item{
-  max-width:320px;
+  max-width:270px;
+  cursor:pointer;
   transition:.35s;
 }
 
-.value-head{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:12px;
-  cursor:pointer;
-}
-
 .value-icon{
-  font-size:20px;
-  animation: iconFloat 2.5s ease-in-out infinite;
+  font-size:30px;
+  margin-bottom:14px;
+  animation: iconFloat 3s ease-in-out infinite;
 }
 
 @keyframes iconFloat{
   0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-4px);}
+  50%{transform:translateY(-6px);}
 }
 
 .value-title{
-  font-size:15px;
+  font-size:18px;
   font-weight:800;
-  letter-spacing:1px;
+  letter-spacing:1.5px;
+  margin-bottom:10px;
 }
 
 .value-text{
-  font-size:13px;
-  line-height:1.7;
+  font-size:14px;
+  line-height:1.8;
   opacity:.85;
-  margin-top:6px;
 }
 
-/* Glow on hover / click */
+/* Glow */
 .value-item:hover,
 .value-item:active{
-  text-shadow:0 0 18px rgba(255,122,24,.6);
+  text-shadow:0 0 24px rgba(255,122,24,.75);
 }
 
 .value-item:hover .value-icon{
-  text-shadow:0 0 15px rgba(255,122,24,.9);
+  text-shadow:0 0 20px rgba(255,122,24,1);
 }
 
-/* Mobile */
-@media(max-width:900px){
-  .values{
-    grid-template-columns:1fr;
-    gap:35px;
-  }
-}
 /* ================= SOCIAL ================= */
 .social{
   position:absolute;
-  bottom:60px;
+  bottom:55px;
   width:100%;
   display:flex;
   justify-content:center;
-  gap:25px;
+  gap:24px;
   z-index:4;
 }
 
@@ -260,7 +249,7 @@ nav ul li a:hover{
 }
 
 .social a:hover{
-  box-shadow:0 0 30px rgba(255,122,24,1);
+  box-shadow:0 0 28px rgba(255,122,24,1);
   transform:scale(1.15);
 }
 
@@ -272,12 +261,12 @@ nav ul li a:hover{
 /* ================= FOOTER ================= */
 footer{
   position:absolute;
-  bottom:20px;
+  bottom:18px;
   width:100%;
   text-align:center;
   font-size:13px;
-  color:rgba(255,255,255,.85);
-  text-shadow:0 0 12px rgba(0,0,0,.8);
+  color:rgba(255,255,255,.9);
+  text-shadow:0 0 14px rgba(0,0,0,.9);
   z-index:4;
 }
 
@@ -292,8 +281,11 @@ footer{
 /* ================= MOBILE ================= */
 @media(max-width:900px){
   nav ul{display:none;}
-  .page{padding:100px 25px;}
-  .values{grid-template-columns:1fr;}
+  .page{padding:90px 25px;}
+  .values{
+    flex-direction:column;
+    gap:45px;
+  }
 }
 </style>
 </head>
@@ -314,66 +306,68 @@ footer{
 </nav>
 
 <section class="hero">
-
   <div class="page">
 
+    <!-- ABOUT -->
     <div class="about-header">
-      <div class="about-line"></div>
       <div class="about-title en">ABOUT</div>
       <div class="about-title ar">من نحن</div>
     </div>
 
+    <div class="about-glow-line"></div>
+
     <p class="about-text en">
-      With over 20 years of engineering expertise, STEPS delivers integrated construction solutions with uncompromising quality, safety, and efficiency.
+      With over 20 years of engineering expertise, STEPS delivers integrated construction
+      solutions with uncompromising quality, safety, and efficiency.
     </p>
 
     <p class="about-text ar">
-      بخبرة تتجاوز 20 عامًا، تقدم STEPS حلولًا متكاملة في المقاولات الكهروميكانيكية بأعلى معايير الجودة والسلامة والكفاءة.
+      بخبرة تتجاوز 20 عامًا، تقدم STEPS حلولًا متكاملة في المقاولات الكهروميكانيكية
+      بأعلى معايير الجودة والسلامة والكفاءة.
     </p>
 
+    <!-- VALUES -->
     <div class="values">
-  <div class="value-item">
-    <div class="value-head">
-      <span class="value-icon">👁</span>
-      <span class="value-title en">VISION</span>
-      <span class="value-title ar">رؤيتنا</span>
-    </div>
-    <p class="value-text en">
-      To shape a strong presence in the electromechanical contracting field locally and regionally.
-    </p>
-    <p class="value-text ar">
-      بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا.
-    </p>
-  </div>
 
-  <div class="value-item">
-    <div class="value-head">
-      <span class="value-icon">🎯</span>
-      <span class="value-title en">MISSION</span>
-      <span class="value-title ar">مهمتنا</span>
-    </div>
-    <p class="value-text en">
-      Deliver smart and reliable engineering solutions powered by skilled teams.
-    </p>
-    <p class="value-text ar">
-      تقديم حلول هندسية ذكية وموثوقة مدفوعة بفِرق عمل محترفة.
-    </p>
-  </div>
+      <div class="value-item">
+        <div class="value-icon">👁</div>
+        <div class="value-title en">VISION</div>
+        <div class="value-title ar">رؤيتنا</div>
+        <div class="value-text en">
+          To shape a strong presence in the electromechanical contracting field locally and regionally.
+        </div>
+        <div class="value-text ar">
+          بناء حضور قوي وموثوق في قطاع المقاولات الكهروميكانيكية محليًا وإقليميًا.
+        </div>
+      </div>
 
-  <div class="value-item">
-    <div class="value-head">
-      <span class="value-icon">🤝</span>
-      <span class="value-title en">COMMITMENT</span>
-      <span class="value-title ar">التزامنا</span>
+      <div class="value-item">
+        <div class="value-icon">🎯</div>
+        <div class="value-title en">MISSION</div>
+        <div class="value-title ar">مهمتنا</div>
+        <div class="value-text en">
+          Deliver smart and reliable engineering solutions powered by skilled teams.
+        </div>
+        <div class="value-text ar">
+          تقديم حلول هندسية ذكية وموثوقة مدفوعة بفرق عمل محترفة.
+        </div>
+      </div>
+
+      <div class="value-item">
+        <div class="value-icon">🤝</div>
+        <div class="value-title en">COMMITMENT</div>
+        <div class="value-title ar">التزامنا</div>
+        <div class="value-text en">
+          Precision, innovation, and client satisfaction in every project we deliver.
+        </div>
+        <div class="value-text ar">
+          الالتزام بالدقة والابتكار ورضا العملاء في كل مشروع نقوم بتنفيذه.
+        </div>
+      </div>
+
     </div>
-    <p class="value-text en">
-      Precision, innovation, and client satisfaction in every project we deliver.
-    </p>
-    <p class="value-text ar">
-      الالتزام بالدقة والابتكار ورضا العملاء في كل مشروع نقوم بتنفيذه.
-    </p>
+
   </div>
-</div>
 </section>
 
 <div class="lang-toggle">
