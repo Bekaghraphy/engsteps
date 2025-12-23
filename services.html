@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Services | Engineering Steps</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --yellow:#F2B705;
+  --dark:#0E0E0E;
+  --gray:#B5B5B5;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+}
+
+body{
+  background:var(--dark);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+  padding:120px 8% 80px;
+}
+
+.hero h1{
+  font-size:72px;
+  font-weight:800;
+}
+
+.hero .line{
+  width:90px;
+  height:4px;
+  background:var(--yellow);
+  margin:20px 0;
+}
+
+.hero p{
+  max-width:650px;
+  color:var(--gray);
+  line-height:1.8;
+  font-size:18px;
+}
+
+/* SERVICE SECTION */
+.service{
+  display:flex;
+  min-height:90vh;
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s ease;
+}
+
+.service.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.service.left{flex-direction:row;}
+.service.right{flex-direction:row-reverse;}
+
+.service-text{
+  width:40%;
+  background:rgba(242,183,5,0.9);
+  color:#000;
+  padding:80px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.service-text h2{
+  font-size:46px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.service-text p{
+  font-size:16px;
+  line-height:1.8;
+}
+
+.service-image{
+  width:60%;
+  background-size:cover;
+  background-position:center;
+  filter:grayscale(100%);
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+  .service{
+    flex-direction:column!important;
+  }
+  .service-text,.service-image{
+    width:100%;
+  }
+  .service-text{
+    padding:50px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Services</h1>
+  <div class="line"></div>
+  <p>
+    Engineering Steps ties up all aspects of the Electro-Mechanical field,
+    delivering integrated solutions with precision, safety, and efficiency.
+  </p>
+</section>
+
+<!-- FIT OUT -->
+<section class="service left">
+  <div class="service-text">
+    <h2>FIT OUT</h2>
+    <p>
+      We prioritize exceptional finishing in every project, large or small.
+      Our skilled craftsmen deliver meticulous attention to detail,
+      ensuring flawless execution that exceeds industry standards
+      and leaves a lasting impression.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('fitout.jpg')"></div>
+</section>
+
+<!-- HVAC -->
+<section class="service right">
+  <div class="service-text">
+    <h2>HVAC</h2>
+    <p>
+      Our specialized team brings over 18 years of experience in HVAC systems,
+      including chillers plants, central cooling, air ducts, kitchen hoods,
+      and fire and smoke extraction systems.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('hvac.jpg')"></div>
+</section>
+
+<!-- PLUMBING -->
+<section class="service left">
+  <div class="service-text">
+    <h2>PLUMBING SYSTEMS</h2>
+    <p>
+      Large-scale plumbing systems requiring extensive equipment and resources.
+      Engineering Steps provides complete plumbing stations integrated
+      seamlessly with electrical and mechanical plant needs.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('plumbing.jpg')"></div>
+</section>
+
+<!-- FACILITY -->
+<section class="service right">
+  <div class="service-text">
+    <h2>FACILITY MANAGEMENT</h2>
+    <p>
+      We deliver top-notch facility management services focused on quality,
+      timely execution, and proactive maintenance to ensure comfort,
+      functionality, and operational excellence.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('facility.jpg')"></div>
+</section>
+
+<!-- FIRE -->
+<section class="service left">
+  <div class="service-text">
+    <h2>FIRE FIGHTING SYSTEMS</h2>
+    <p>
+      Highly specialized fire protection systems designed to meet
+      international safety regulations and perform reliably
+      in harsh operational environments.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('fire.jpg')"></div>
+</section>
+
+<!-- AIR -->
+<section class="service right">
+  <div class="service-text">
+    <h2>COMPRESSED AIR SYSTEMS</h2>
+    <p>
+      Supplying and installing tailored compressed air systems
+      that enhance productivity, reduce operational costs,
+      and ensure long-term performance with excellent after-sales support.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('air.jpg')"></div>
+</section>
+
+<!-- LOW CURRENT -->
+<section class="service left">
+  <div class="service-text">
+    <h2>LOW CURRENT SYSTEMS</h2>
+    <p>
+      Engineering and maintenance of fire alarms, emergency lighting,
+      CCTV, access control, and structured cabling systems
+      with practical and reliable implementation.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('lowcurrent.jpg')"></div>
+</section>
+
+<!-- CONSTRUCTION -->
+<section class="service right">
+  <div class="service-text">
+    <h2>CONSTRUCTION</h2>
+    <p>
+      High-quality mechanical construction solutions aligned
+      with demanding factory environments, ensuring uninterrupted
+      production and superior performance standards.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('construction.jpg')"></div>
+</section>
+
+<!-- PROJECT MANAGEMENT -->
+<section class="service left">
+  <div class="service-text">
+    <h2>PROJECT MANAGEMENT</h2>
+    <p>
+      Professional project management services providing full control
+      over scheduling, budgeting, quality assurance, and stakeholder
+      coordination—delivering success step by step.
+    </p>
+  </div>
+  <div class="service-image" style="background-image:url('project.jpg')"></div>
+</section>
+
+<script>
+const services = document.querySelectorAll('.service');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{threshold:0.25});
+
+services.forEach(s=>observer.observe(s));
+</script>
+
+</body>
+</html>
